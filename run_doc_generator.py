@@ -12,8 +12,8 @@ sys.path.insert(0, project_root)
 # -----------------------------
 
 # وارد کردن کلاس‌های مورد نیاز (حالا بدون خطا کار می‌کند)
-from src.handlers.readme import ReadmeHandler, ReadmeHandlerConfig
-
+from src.agents.documenter import DocumenterAgent, DocumenterAgentConfig
+# خط صحیح
 
 async def main():
     """
