@@ -24,13 +24,11 @@ from utils import Logger
 
 nest_asyncio.apply()
 
-#code
 
->>>>>>> d1a99789f40fffffa09170788065f3aa352e0534
 def configure_logging(
     repo_path: Path,
-    file_level: int = logging.INFO,
-    console_level: int = logging.WARNING,
+    file_level: int = logging.INFO ,
+    console_level: int = logging.WARNING ,
 ):
     repo_name = repo_path.name
 
