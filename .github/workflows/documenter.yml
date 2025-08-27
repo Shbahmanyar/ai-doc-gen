@@ -30,6 +30,7 @@ jobs:
           echo "---------------------------"
 
       # مرحله نصب وابستگی‌ها
+      
       - name: Install dependencies
         run: pip install -r requirements.txt
 
