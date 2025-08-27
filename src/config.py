@@ -7,8 +7,8 @@ import yaml
 from dotenv import load_dotenv
 from pydantic import BaseModel
 
-from utils.dict import merge_dicts
-
+# خط صحیح
+from src.utils.dict import merge_dicts
 load_dotenv()
 
 #this is for second edited for test
