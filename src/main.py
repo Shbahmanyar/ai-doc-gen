@@ -26,13 +26,13 @@ nest_asyncio.apply()
 
 
 def configure_logging(
-    repo_path: Path,
+    repo_path: Path ,
     file_level: int = logging.INFO ,
     console_level: int = logging.WARNING ,
 ):
     repo_name = repo_path.name
 
-    logs_dir = Path(os.path.dirname(__file__)) / ".logs" / repo_name / datetime.now().strftime("%Y_%m_%d")
+    logs_dir = Path(os.path.dirname(__file__)) / " .logs" / repo_name / datetime.now().strftime("%Y_%m_%d")
     os.makedirs(logs_dir, exist_ok=True)
     Logger.init(logs_dir, file_level=file_level, console_level=console_level)
 
@@ -40,9 +40,9 @@ def configure_logging(
 async def analyze(args: argparse.Namespace):
     cfg: AnalyzeHandlerConfig = load_config(args, AnalyzeHandlerConfig, "analyzer")
     configure_logging(
-        repo_path=cfg.repo_path,
-        file_level=config.FILE_LOG_LEVEL,
-        console_level=config.CONSOLE_LOG_LEVEL,
+        repo_path=cfg.repo_path ,
+        file_level=config.FILE_LOG_LEVEL ,
+        console_level=config.CONSOLE_LOG_LEVEL ,
     )
 
     handler = AnalyzeHandler(cfg)
@@ -50,7 +50,7 @@ async def analyze(args: argparse.Namespace):
     await handler.handle()
 
 
-async def document(args: argparse.Namespace):
+async def document(args: argparse.Namespace) :
     cfg: ReadmeHandlerConfig = load_config(args, ReadmeHandlerConfig, "documenter")
     configure_logging(
         repo_path=cfg.repo_path,
