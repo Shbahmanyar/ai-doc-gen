@@ -23,8 +23,13 @@ from handlers.readme import ReadmeHandler, ReadmeHandlerConfig
 from utils import Logger
 
 nest_asyncio.apply()
+<<<<<<< HEAD
 
 #test for check new بخخخخخذتیسساتیتیسصذ
+=======
+#mfdjkjbdjkkejkbmefbmfbmebmkeekjbkje
+
+>>>>>>> d1a99789f40fffffa09170788065f3aa352e0534
 def configure_logging(
     repo_path: Path,
     file_level: int = logging.INFO,
