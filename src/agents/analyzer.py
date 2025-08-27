@@ -12,7 +12,8 @@ from pydantic_ai.models.openai import OpenAIModel
 from pydantic_ai.providers.openai import OpenAIProvider
 from pydantic_ai.settings import ModelSettings
 
-import config
+from src import config
+
 from utils import Logger, PromptManager, create_retrying_client
 
 from .tools import FileReadTool, ListFilesTool
