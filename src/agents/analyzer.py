@@ -12,12 +12,12 @@ from pydantic_ai.models.openai import OpenAIModel
 from pydantic_ai.providers.openai import OpenAIProvider
 from pydantic_ai.settings import ModelSettings
 
-from src import config
-
 from utils import Logger, PromptManager, create_retrying_client
 
 from .tools import FileReadTool, ListFilesTool
 
+# خط صحیح
+from src.utils import Logger, PromptManager, create_retrying_client
 
 class AnalyzerAgentConfig(BaseModel):
     repo_path: Path = Field(..., description="The path to the repository")
