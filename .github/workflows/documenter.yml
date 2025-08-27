@@ -39,14 +39,17 @@ jobs:
 
       - name: Generate documentation
         if: steps.changed_files.outputs.files != ''
+
         env:
           # متغیرهای مربوط به Documenter
           DOCUMENTER_LLM_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           DOCUMENTER_LLM_MODEL: "gpt-4-turbo"
-
-          # متغیرهای جدید و مورد نیاز برای Analyzer
+          DOCUMENTER_LLM_BASE_URL: "https://api.openai.com/v1"  #  <-- خط جدید
+        
+          # متغیرهای مورد نیاز برای Analyzer
           ANALYZER_LLM_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           ANALYZER_LLM_MODEL: "gpt-4-turbo"
+          ANALYZER_LLM_BASE_URL: "https://api.openai.com/v1"   #  <-- خط جدید
         run: |
           for file in ${{ steps.changed_files.outputs.files }}
           do
