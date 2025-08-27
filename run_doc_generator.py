@@ -13,11 +13,7 @@ sys.path.insert(0, project_root)
 
 # وارد کردن کلاس‌های مورد نیاز (حالا بدون خطا کار می‌کند)
 from src.agents.documenter import DocumenterAgent, DocumenterAgentConfig
-<<<<<<< HEAD
-# خط صحیح
-=======
 
->>>>>>> 7f3d63937f1c8b8315646a9bc18021ffbae50f5d
 
 async def main():
     """
