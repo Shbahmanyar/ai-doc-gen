@@ -22,19 +22,15 @@ jobs:
         with:
           python-version: '3.10'
 
-      # --- مرحله جدید برای اشکال‌زدایی ---
       - name: DEBUG - Show Workflow File Content
         run: |
           echo "--- Workflow file content ---"
           cat .github/workflows/documenter.yml
           echo "---------------------------"
 
-      # مرحله نصب وابستگی‌ها
-      
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      # ... بقیه مراحل مانند قبل ...
       - name: Get changed Python files
         id: changed_files
         run: |
@@ -44,11 +40,18 @@ jobs:
       - name: Generate documentation
         if: steps.changed_files.outputs.files != ''
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          # متغیرهای مربوط به Documenter
+          DOCUMENTER_LLM_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          DOCUMENTER_LLM_MODEL: "gpt-4-turbo"
+
+          # متغیرهای جدید و مورد نیاز برای Analyzer
+          ANALYZER_LLM_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANALYZER_LLM_MODEL: "gpt-4-turbo"
         run: |
           for file in ${{ steps.changed_files.outputs.files }}
           do
-            python run_doc_generator.py --file-path "$file" --output-dir "docs"
+            # دستور زیر اصلاح شده تا آرگومان‌های اضافه را نداشته باشد
+            python run_doc_generator.py --project-root "." --file-path "$file" --output-dir "docs"
           done
       
       - name: Commit and push documentation
