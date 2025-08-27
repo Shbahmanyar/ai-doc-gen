@@ -24,7 +24,7 @@ from utils import Logger
 
 nest_asyncio.apply()
 
-
+#test for check new بخخخخخذتیسساتیتیسصذ
 def configure_logging(
     repo_path: Path,
     file_level: int = logging.INFO,
