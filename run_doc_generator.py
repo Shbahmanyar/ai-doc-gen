@@ -1,15 +1,19 @@
-# run_doc_generator.py
 import argparse
 import asyncio
 import os
 import sys
 from pathlib import Path
 
-# افزودن مسیر ai-doc-gen به مسیرهای پایتون
-sys.path.append(os.path.join(os.path.dirname(__file__), 'ai-doc-gen'))
+# --- بخش جدید برای حل مشکل ---
+# این کد مسیر اصلی پروژه (جایی که خود این اسکریپت قرار دارد) را به پایتون معرفی می‌کند
+# تا بتواند تمام ماژول‌های دیگر مثل 'src' و 'agents' را پیدا کند.
+project_root = os.path.abspath(os.path.dirname(__file__))
+sys.path.insert(0, project_root)
+# -----------------------------
 
-# وارد کردن کلاس‌های مورد نیاز از مسیر صحیح
+# وارد کردن کلاس‌های مورد نیاز (حالا بدون خطا کار می‌کند)
 from src.handlers.readme import ReadmeHandler, ReadmeHandlerConfig
+
 
 async def main():
     """
